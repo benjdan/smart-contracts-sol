@@ -49,6 +49,7 @@ contract Ballot {
             "The voter already voted."
         );
         require(voters[voter].weight == 0, "Voter already has the right to vote.");
+        console.log("Given right to vote successful!");
         voters[voter].weight = 1;
     }
 
@@ -80,6 +81,7 @@ contract Ballot {
         } else {
             delegate_.weight += sender.weight;
         }
+        console.log("delegation successful!");
     }
 
     function vote(uint proposal) external {
@@ -90,6 +92,7 @@ contract Ballot {
         sender.vote = proposal;
 
         proposals[proposal].voteCount += sender.weight;
+        console.log("voted successfully!");
     }
 
     function winningProposal() public view
