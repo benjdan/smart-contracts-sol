@@ -30,6 +30,7 @@ contract Owner {
         require(newOwner != address(0), "New owner should not be the zero address");
         emit OwnerSet(owner, newOwner);
         owner = newOwner;
+        console.log("change owner successful!");
     }
 
     function getOwner() external view returns (address) {
